@@ -1,0 +1,19 @@
+{
+  "name": "rapidrecruit",
+  "version": "1.0.0",
+  "description": "Node/React Web Application for managing greek and professional organization recruitment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HashedDan/RapidRecruit.git"
+  },
+  "author": "Daniel Mangum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HashedDan/RapidRecruit/issues"
+  },
+  "homepage": "https://github.com/HashedDan/RapidRecruit#readme"
+}
