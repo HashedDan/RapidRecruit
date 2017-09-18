@@ -2,8 +2,8 @@
   "name": "rapidrecruit",
   "version": "1.0.0",
   "description": "Node/React Web Application for managing greek and professional organization recruitment",
-  "main": "index.js",
   "scripts": {
+    "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/HashedDan/RapidRecruit/issues"
   },
-  "homepage": "https://github.com/HashedDan/RapidRecruit#readme"
+  "homepage": "https://github.com/HashedDan/RapidRecruit#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
 }
