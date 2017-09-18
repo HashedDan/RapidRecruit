@@ -1,9 +1,11 @@
 const express = require('express')
 const app = express()
 
+var guy = "hey"
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+	guy = "bye"
+	app.use(express.static('client/build'));
 }
 
 app.set("port", process.env.PORT || 3001);
@@ -13,7 +15,7 @@ app.set("port", process.env.PORT || 3001);
 // })
 
 app.get('/api', function(req, res) {
-	res.send('Base url for API')
+	res.send('Base url for API' + guy)
 })
 
 app.listen(app.get("port"), function () {
