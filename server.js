@@ -16,7 +16,7 @@ app.set("port", process.env.PORT || 3001);
 // })
 
 app.get('/api', function(req, res) {
-	res.send('Base url for API' + guy)
+	res.send('Base url for API' + guy + ' ' + __dirname)
 })
 
 
