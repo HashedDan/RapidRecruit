@@ -18,6 +18,10 @@ app.get('/api', function(req, res) {
 	res.send('Base url for API' + guy)
 })
 
+app.get('/testStatic', function(req, res) {
+	res.send()
+})
+
 app.listen(app.get("port"), function () {
   console.log('Server running on http://localhost:' + app.get("port"))
 })
