@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Node/React Web Application for managing greek and professional organization recruitment",
   "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node server.js",
+    "client": "node start-client.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +20,8 @@
   "homepage": "https://github.com/HashedDan/RapidRecruit#readme",
   "dependencies": {
     "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
   }
 }
