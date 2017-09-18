@@ -4,11 +4,11 @@ const app = express()
 var guy = "hey"
 
 if (process.env.NODE_ENV === 'production') {
-	guy = "bye"
-	app.use(express.static('client/build'));
+	guy = "bye";
+	app.use(express.static(__dirname + '/client/build'));
 }
 
-app.use(express.static('client/build'));
+
 app.set("port", process.env.PORT || 3001);
 
 // app.get('/', function (req, res) {
