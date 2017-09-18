@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 	guy = "bye";
 	app.use(express.static('client/build'));
 }
-
+app.use(express.static('client/build'));
 
 app.set("port", process.env.PORT || 3001);
 
