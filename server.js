@@ -3,11 +3,12 @@ const app = express()
 
 var guy = "hey"
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
 	guy = "bye"
 	app.use(express.static('client/build'));
 }
 
+app.use(express.static('client/build'));
 app.set("port", process.env.PORT || 3001);
 
 // app.get('/', function (req, res) {
