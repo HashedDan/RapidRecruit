@@ -1,10 +1,21 @@
 const express = require('express')
 const app = express()
 
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
+app.set("port", process.env.PORT || 3001);
+
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.get('/api', function(req, res) {
+	res.send('Base url for API')
+})
+
+app.listen(app.get("port"), function () {
+  console.log('Server running on http://localhost:' + app.get("port"))
 })
