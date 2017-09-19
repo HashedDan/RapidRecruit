@@ -5,7 +5,7 @@ import './App.css';
 fetch('/api', {
   method: 'get'
 }).then(function(response) {
-  console.log(response);
+  return response.json();
 }).catch(function(err) {
   console.log(err);
 });
