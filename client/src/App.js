@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+fetch('/api', {
+  method: 'get'
+}).then(function(response) {
+  console.log(response);
+}).catch(function(err) {
+  console.log(err);
+});
+
 class App extends Component {
   render() {
     return (
