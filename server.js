@@ -1,10 +1,8 @@
 const express = require('express')
 const app = express()
 
-var guy = "hey"
 
 if (process.env.NODE_ENV === 'production') {
-	guy = "bye";
 	app.use(express.static('client/build'));
 }
 
@@ -15,7 +13,7 @@ app.set("port", process.env.PORT || 3001);
 // })
 
 app.get('/api', function(req, res) {
-	res.send('Base url for API' + guy)
+	res.json({message: "base api url"});
 })
 
 
