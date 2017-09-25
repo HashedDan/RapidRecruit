@@ -10,10 +10,6 @@ var conString = "postgres://nylvbgixchinga:56ad58ff2c4552bba4c1938d65d7105629846
 
 app.set("port", process.env.PORT || 3001);
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
-
 
 router.get('/test', function(req, res) {
 	res.send("api test");
@@ -21,16 +17,19 @@ router.get('/test', function(req, res) {
 
 
 router.get('/', function(req, res) {
-	res.send("base url route");
+	res.send(JSON.stringify({ a: 1 }));
 });
 
 
-var db = new pg.Client(conString);
+// var db = new pg.Client(conString);
 
-db.connect();
+// db.connect();
 
-db.query("INSERT INTO basic_names(id, name) values(4, $1)", ['Test']);
+// db.query("INSERT INTO basic_names(id, name) values(4, $1)", ['Test']);
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
 
 app.listen(app.get("port"), function () {
   console.log('Server running on http://localhost:' + app.get("port"))
