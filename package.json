@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Node/React Web Application for managing greek and professional organization recruitment",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
-    "client": "node start-client.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
