@@ -27,6 +27,8 @@ app.set("port", process.env.PORT || 3001);
 	ORGANIZATION
 */
 router.get('/organizations', function(req, res) {
+	res.header("Access-Control-Allow-Origin", "*");
+  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	db.query('SELECT * FROM organizations', function(err, result) {
 	  console.log('name: %s and school: %s', result.rows[0].org_name, result.rows[0].org_school);
 	  var responseString = "Database successfully queried --> name: " + result.rows[0].org_name + "school: " + result.rows[0].org_school;
@@ -91,8 +93,4 @@ app.listen(app.get("port"), function () {
   console.log('Server running on http://localhost:' + app.get("port"))
 })
 
-app.use('/api', router, function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  	next();
-});
+app.use('/api', router);
