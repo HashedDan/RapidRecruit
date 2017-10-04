@@ -14,7 +14,7 @@ app.set("port", process.env.PORT || 3001);
 
 
 router.get('/test', function(req, res) {
-	db.query('SELECT * FROM basic_names', function(err, result) {
+	db.query('SELECT * FROM basic_names WHERE id = 2', function(err, result) {
 	  console.log('id: %d and name: %s', result.rows[0].id, result.rows[0].name);
 	  var responseString = "Database successfully queried --> id: " + result.rows[0].id + "name: " + result.rows[0].name;
 	  //since the row object is just a hash, it can be accessed also as follows
@@ -23,8 +23,58 @@ router.get('/test', function(req, res) {
 	});
 });
 
+/*
+	ORGANIZATION
+*/
+router.get('/organizations', function(req, res) {
+	db.query('SELECT * FROM organizations', function(err, result) {
+	  console.log('name: %s and school: %s', result.rows[0].org_name, result.rows[0].org_school);
+	  var responseString = "Database successfully queried --> name: " + result.rows[0].org_name + "school: " + result.rows[0].org_school;
+	  //since the row object is just a hash, it can be accessed also as follows
+	  // console.log('name: %s and age: %d', result.rows[0]['id'], result.rows[0]['name']);
+	  res.send(JSON.stringify(result.rows));
+	});
+});
 
-router.get('/', function(req, res) {
+/*
+	MEMBERS
+*/
+router.get('/members', function(req, res) {
+	res.send(JSON.stringify({ a: 1 }));
+});
+
+/*
+	EVENTS
+*/
+router.get('/events', function(req, res) {
+	res.send(JSON.stringify({ a: 1 }));
+});
+
+/*
+	LISTS
+*/
+router.get('/lists', function(req, res) {
+	res.send(JSON.stringify({ a: 1 }));
+});
+
+/*
+	RECRUITS
+*/
+router.get('/recruits', function(req, res) {
+	res.send(JSON.stringify({ a: 1 }));
+});
+
+/*
+	SIGN IN
+*/
+router.get('/signin', function(req, res) {
+	res.send(JSON.stringify({ a: 1 }));
+});
+
+/*
+	VOTES
+*/
+router.get('/votes', function(req, res) {
 	res.send(JSON.stringify({ a: 1 }));
 });
 
