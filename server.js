@@ -13,15 +13,15 @@ db.connect();
 app.set("port", process.env.PORT || 3001);
 
 
-router.get('/test', function(req, res) {
-	db.query('SELECT * FROM basic_names WHERE id = 2', function(err, result) {
-	  console.log('id: %d and name: %s', result.rows[0].id, result.rows[0].name);
-	  var responseString = "Database successfully queried --> id: " + result.rows[0].id + "name: " + result.rows[0].name;
-	  //since the row object is just a hash, it can be accessed also as follows
-	  // console.log('name: %s and age: %d', result.rows[0]['id'], result.rows[0]['name']);
-	  res.send(JSON.stringify(result.rows));
-	});
-});
+// router.get('/test', function(req, res) {
+// 	db.query('SELECT * FROM basic_names WHERE id = 2', function(err, result) {
+// 	  console.log('id: %d and name: %s', result.rows[0].id, result.rows[0].name);
+// 	  var responseString = "Database successfully queried --> id: " + result.rows[0].id + "name: " + result.rows[0].name;
+// 	  //since the row object is just a hash, it can be accessed also as follows
+// 	  // console.log('name: %s and age: %d', result.rows[0]['id'], result.rows[0]['name']);
+// 	  res.send(JSON.stringify(result.rows));
+// 	});
+// });
 
 /*
 	ORGANIZATION
