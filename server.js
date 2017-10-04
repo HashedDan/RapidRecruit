@@ -91,4 +91,8 @@ app.listen(app.get("port"), function () {
   console.log('Server running on http://localhost:' + app.get("port"))
 })
 
-app.use('/api', router);
+app.use('/api', router, function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+  	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  	next();
+});
