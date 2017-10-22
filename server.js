@@ -48,33 +48,33 @@ db.connect();
 // app.get('/signin', signin);
 // app.get('/votes', votes);
 
-app.get('/organizations', function(req,res) {
+app.get('//organizations', function(req,res) {
 	db.query('SELECT * FROM organizations', function(err, result) {
 	  res.send(JSON.stringify(result.rows));
 	});
 });
-app.get('/members', function(req,res) {
+app.get('//members', function(req,res) {
 	db.query('SELECT * FROM members', function(err, result) {
 	  res.send(JSON.stringify(result.rows));
 	});
 });
-app.get('/events', function(req,res) {
+app.get('//events', function(req,res) {
 	db.query('SELECT * FROM events', function(err, result) {
 	  res.send(JSON.stringify(result.rows));
 	});
 });
-app.get('/lists', function(req,res) {
+app.get('//lists', function(req,res) {
 	db.query('SELECT * FROM lists', function(err, result) {
 	  res.send(JSON.stringify(result.rows));
 	});
 });
-app.get('/recruits', function(req,res) {
+app.get('//recruits', function(req,res) {
 	res.send("NOT COMPLETE");
 });
-app.get('/signin', function(req,res) {
+app.get('//signin', function(req,res) {
 	res.send("NOT COMPLETE");
 });
-app.get('/votes', function(req,res) {
+app.get('//votes', function(req,res) {
 	res.send("NOT COMPLETE");
 });
 
