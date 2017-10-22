@@ -9,9 +9,9 @@ var express = require('express');
 
 var app = express();
 
-app.set("port", process.env.PORT || 3001);
+app.set("port", process.env.PORT || 8084);
 
-var db = require('../connectDB');
+var db = require('./connectDB');
 db.connect();
 
 // app.use('/api', function(req, res, next) {
@@ -54,22 +54,28 @@ app.get('/organizations', function(req,res) {
 	});
 });
 app.get('/members', function(req,res) {
-
+	db.query('SELECT * FROM members', function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
 });
 app.get('/events', function(req,res) {
-
+	db.query('SELECT * FROM events', function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
 });
 app.get('/lists', function(req,res) {
-
+	db.query('SELECT * FROM lists', function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
 });
 app.get('/recruits', function(req,res) {
-
+	res.send("NOT COMPLETE");
 });
 app.get('/signin', function(req,res) {
-
+	res.send("NOT COMPLETE");
 });
 app.get('/votes', function(req,res) {
-
+	res.send("NOT COMPLETE");
 });
 
 
