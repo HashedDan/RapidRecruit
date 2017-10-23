@@ -21,12 +21,11 @@ db.connect();
 //   next();
 // });
 
-// app.use('/', function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   console.log("---------");
-//   next();
-// });
+app.use('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 /*
 	ROUTE HANDLERS
@@ -75,7 +74,9 @@ app.get('//signin', function(req,res) {
 	res.send("NOT COMPLETE");
 });
 app.get('//votes', function(req,res) {
-	res.send("NOT COMPLETE");
+	db.query('SELECT * FROM lists', function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
 });
 
 
