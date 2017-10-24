@@ -53,9 +53,16 @@ app.get('//organizations', function(req,res) {
 	});
 });
 app.get('//members', function(req,res) {
-	db.query('SELECT * FROM members', function(err, result) {
-	  res.send(JSON.stringify(result.rows));
-	});
+	if (req.query.org != undefined) {
+		db.query('SELECT * FROM members WHERE member_org =' +req.query.org, function(err, result) {
+		  res.send(JSON.stringify(result.rows));
+		});
+	}
+	else {
+		db.query('SELECT * FROM members', function(err, result) {
+		  res.send(JSON.stringify(result.rows));
+		});
+	}
 });
 app.get('//events', function(req,res) {
 	db.query('SELECT * FROM events', function(err, result) {
@@ -67,17 +74,53 @@ app.get('//lists', function(req,res) {
 	  res.send(JSON.stringify(result.rows));
 	});
 });
+app.get('//votes', function(req,res) {
+	db.query('SELECT * FROM votes', function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
+});
+app.get('//organizations/:id', function(req,res) {
+	db.query('SELECT * FROM organizations WHERE org_id = '+ req.params.id, function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
+});
+app.get('//members/:id', function(req,res) {
+	console.log(req.params.id);
+	db.query('SELECT * FROM members WHERE member_id = '+ req.params.id, function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
+});
+app.get('//events/:id', function(req,res) {
+	db.query('SELECT * FROM events WHERE event_id = '+ req.params.id, function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
+});
+app.get('//lists/:id', function(req,res) {
+	db.query('SELECT * FROM lists WHERE list_id = '+ req.params.id, function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
+});
+app.get('//votes/:id', function(req,res) {
+	db.query('SELECT * FROM votes WHERE vote_id = '+ req.params.id, function(err, result) {
+	  res.send(JSON.stringify(result.rows));
+	});
+});
 app.get('//recruits', function(req,res) {
-	res.send("NOT COMPLETE");
+	if (req.query.list != undefined) {
+		db.query('SELECT * FROM recruits WHERE list_id =' +req.query.list, function(err, result) {
+		  res.send(JSON.stringify(result.rows));
+		});
+	}
+	else {
+		db.query('SELECT * FROM recruits', function(err, result) {
+		  res.send(JSON.stringify(result.rows));
+		});
+	}
 });
 app.get('//signin', function(req,res) {
 	res.send("NOT COMPLETE");
 });
-app.get('//votes', function(req,res) {
-	db.query('SELECT * FROM lists', function(err, result) {
-	  res.send(JSON.stringify(result.rows));
-	});
-});
+
 
 
 // db.query("INSERT INTO basic_names(id, name) values(4, $1)", ['Test']);
